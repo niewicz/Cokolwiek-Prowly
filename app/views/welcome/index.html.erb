@@ -1,0 +1,42 @@
+<div>
+	<% if flash[:errors] %>
+		<ul>
+			<% flash[:errors].each do |error| %>
+				<li><%= error %></li>
+			<% end %>
+		</ul>
+	<% end %>
+
+	<form action="/welcome" method="POST">
+		<div>
+			<label for="user[name]">Name: </label>
+			<input name="user[name]" type="text">
+		</div>
+
+		<div>
+			<label for="user[surname]">Surname: </label>
+			<input name="user[surname]" type="text">
+		</div>
+
+		<div>
+			<label for="profile[city]">City: </label>
+			<input name="profile[city]" type="text">
+		</div>
+
+		<div>
+			<label for="profile[address]">Address: </label>
+			<input name="profile[address]" type="text">
+		</div>
+
+		<div>
+			<label for="profile[number]">Number: </label>
+			<input name="profile[number]" type="number">
+		</div>
+
+		<div>
+			<input type="submit" value="Wyslij">
+		</div>
+
+	</form>
+
+</div>
