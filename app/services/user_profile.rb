@@ -14,6 +14,8 @@ module UserProfile
 				user = User.new(@user_params)
 				profile = Profile.new(@profile_params)
 				
+				p user
+
 				Profile.transaction do
 					User.transaction do
 						user.save(validate: false)
@@ -22,7 +24,7 @@ module UserProfile
 				end
 			end
 
-			construct_errors(user_result, profile_result)
+			return construct_errors(user_result, profile_result), user
 		end
 
 		private

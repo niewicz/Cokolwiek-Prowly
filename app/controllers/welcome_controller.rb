@@ -4,14 +4,18 @@ class WelcomeController < ApplicationController
 
   def create
   	service = ::UserProfile::CreateUserWithProfile.new(user_params, profile_params)
-  	@errors = service.call
+  	@errors, @user = service.call
 
   	if @errors.empty? 
-  		head 200
+  		redirect_to controller: :welcome, action: :show, id: @user.id
   	else
   		flash[:errors] = @errors
   		render :index
   	end
+  end
+
+  def show
+  	@user = User.find(params[:id])
   end
 
   private
