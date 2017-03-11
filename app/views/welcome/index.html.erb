@@ -1,4 +1,8 @@
 <div>
+	<% if notice %>
+		<div><%= notice %></div>
+		<hr>
+	<% end %>
 	<% if flash[:errors] %>
 		<ul>
 			<% flash[:errors].each do |error| %>
